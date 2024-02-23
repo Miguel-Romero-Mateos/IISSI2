@@ -40,7 +40,7 @@ const loadModel = (sequelize, DataTypes) => {
       type: DataTypes.VIRTUAL,
       get () {
         return Number(this.getAverageServiceTime())
-      }
+      },
     },
     status: DataTypes.ENUM('online','offline','closed','temporarilyClosed'),
     heroImage: DataTypes.TEXT

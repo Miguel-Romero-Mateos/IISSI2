@@ -40,9 +40,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DOUBLE
       },
-      averageServiceMinutes: {
-        type: Sequelize.DOUBLE
-      },
       email: {
         type: Sequelize.TEXT
       },

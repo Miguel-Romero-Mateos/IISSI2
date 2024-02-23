@@ -25,27 +25,29 @@ module.exports = {
       url: {
         type: Sequelize.TEXT
       },
+      restaurantCategoryId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'RestaurantCategories'
+          },
+          key: 'id'
+        },
+        onDelete: 'cascade'
+      },
       shippingCosts: {
         allowNull: false,
-        type: Sequelize.DOUBLE
-      },
-      averageServiceMinutes: {
         type: Sequelize.DOUBLE
       },
       email: {
         type: Sequelize.TEXT
       },
-      phone: {
+      logo: {
         type: Sequelize.TEXT
       },
-      logo: {
-        
-      },
-      heroImage: {
-
-      },
-      status: {
-
+      phone: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -56,6 +58,23 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'Users'
+          },
+          key: 'id'
+        },
+        onDelete: 'cascade'
+      },
+      status: {
+        type: Sequelize.ENUM('online','offline','closed','temporarilyClosed')
+      },
+      heroImage: {
+        type: Sequelize.TEXT
       }
     })
   },
